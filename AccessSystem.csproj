@@ -55,13 +55,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Components\timeSelect.xaml.cs">
-      <DependentUpon>timeSelect.xaml</DependentUpon>
+    <Compile Include="Components\HoursSelect.xaml.cs">
+      <DependentUpon>HoursSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MinutesSelect.xaml.cs">
+      <DependentUpon>MinutesSelect.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserLogin.xaml.cs">
       <DependentUpon>UserLogin.xaml</DependentUpon>
     </Compile>
-    <Page Include="Components\timeSelect.xaml">
+    <Compile Include="UserManagement.xaml.cs">
+      <DependentUpon>UserManagement.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Components\HoursSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MinutesSelect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -78,6 +88,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

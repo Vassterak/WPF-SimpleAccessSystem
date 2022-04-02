@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace AccessSystem.Components
 {
     /// <summary>
-    /// Interaction logic for timeSelect.xaml
+    /// Interaction logic for MinutesSelect.xaml
     /// </summary>
-    public partial class timeSelect : UserControl
+    public partial class MinutesSelect : UserControl
     {
-        public timeSelect()
+        public MinutesSelect()
         {
             InitializeComponent();
         }
