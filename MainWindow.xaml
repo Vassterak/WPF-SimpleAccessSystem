@@ -1,0 +1,150 @@
+﻿<Window x:Class="AccessSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccessSystem"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="550" MinWidth="950">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Tabulka historie přichozí lidi atd... kokoti co se hlásí-->
+        <Label Content="Historie nedávných přístupů:" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <ListView Margin="5" x:Name="boughtItems" ItemsSource="{Binding boughtProducts}" Grid.Column="0" Grid.Row="1" Grid.RowSpan="8">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="60" DisplayMemberBinding="{Binding Barcode}" />
+                    <GridViewColumn Header="Jméno" Width="110" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Skupina" Width="80" DisplayMemberBinding="{Binding Quantity}"/>
+                    <GridViewColumn Header="Čas" Width="75" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Vstup" Width="35" DisplayMemberBinding="{Binding TotalPrice}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+        <!--Vytvoř novou kirplo skupinu pro kterény jako ty aby jsi je mohl separovat od inteligentních lidí-->
+        <Label Grid.Column="1" Grid.Row="0" Content="Založ novou skupinu (název):" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" />
+        <Button Grid.Row="0" Grid.Column="3" Content="Přidej novou skupinu" Width="120" Height="30"/>
+
+        <!--Správa skupin, vyber skupinu a namrdej do ní kokoty jako jsi ty sám-->
+        <Label Grid.Column="1" Grid.Row="1" Content="Vyber skupinu, pro změnu:" VerticalAlignment="Center"/>
+        <ComboBox x:Name="comboxBox_groupsList" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" Height="30">
+            <ComboBoxItem  IsSelected="True">Žádná</ComboBoxItem>
+            <ComboBoxItem>Vypis skupin</ComboBoxItem>
+            <ComboBoxItem>Vypis skupin</ComboBoxItem>
+        </ComboBox>
+        <Button Grid.Row="1" Grid.Column="3" Content="Smazej skupinu" Width="120" Height="30"/>
+        
+        <!--Nastavení pravidel pro jednotlivé dny na skupinu-->
+        <GroupBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="6" Header="Pravidla pro přístup skupiny: '#Name'">
+            <Grid ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--#spaghetticode-->
+                <!--Pondělí-->
+                <Label Grid.Row="0" VerticalAlignment="Center" Content="Pondělí: "/>
+                <CheckBox Content="povolen vstup" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <ComboBox Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" Height="30">
+                    <ComboBoxItem  IsSelected="True">Hod</ComboBoxItem>
+                    <ComboBoxItem>0:</ComboBoxItem>
+                    <ComboBoxItem>1:</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" Height="30">
+                    <ComboBoxItem  IsSelected="True">Min</ComboBoxItem>
+                    <ComboBoxItem>0:</ComboBoxItem>
+                    <ComboBoxItem>1:</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Grid.Column="4" Grid.Row="0" HorizontalAlignment="Stretch" Height="30">
+                    <ComboBoxItem  IsSelected="True">Hod</ComboBoxItem>
+                    <ComboBoxItem>0:</ComboBoxItem>
+                    <ComboBoxItem>1:</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Grid.Column="5" Grid.Row="0" HorizontalAlignment="Stretch" Height="30">
+                    <ComboBoxItem  IsSelected="True">Min</ComboBoxItem>
+                    <ComboBoxItem>0:</ComboBoxItem>
+                    <ComboBoxItem>1:</ComboBoxItem>
+                </ComboBox>
+
+                <Label Grid.Row="1" VerticalAlignment="Center" Content="Úterý: "/>
+                <CheckBox Content="povolen vstup" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <ComboBox Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" Height="30">
+                    <ComboBoxItem  IsSelected="True">Hod</ComboBoxItem>
+                    <ComboBoxItem>0:</ComboBoxItem>
+                    <ComboBoxItem>1:</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" Height="30">
+                    <ComboBoxItem  IsSelected="True">Min</ComboBoxItem>
+                    <ComboBoxItem>0:</ComboBoxItem>
+                    <ComboBoxItem>1:</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Grid.Column="4" Grid.Row="1" HorizontalAlignment="Stretch" Height="30">
+                    <ComboBoxItem  IsSelected="True">Hod</ComboBoxItem>
+                    <ComboBoxItem>0:</ComboBoxItem>
+                    <ComboBoxItem>1:</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Grid.Column="5" Grid.Row="1" HorizontalAlignment="Stretch" Height="30">
+                    <ComboBoxItem  IsSelected="True">Min</ComboBoxItem>
+                    <ComboBoxItem>0:</ComboBoxItem>
+                    <ComboBoxItem>1:</ComboBoxItem>
+                </ComboBox>
+
+                <Label Grid.Row="2" VerticalAlignment="Center" Content="Středa: "/>
+                <CheckBox Content="povolen vstup" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <Label Grid.Row="3" VerticalAlignment="Center" Content="Čtvrtek: "/>
+                <CheckBox Content="povolen vstup" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <Label Grid.Row="4" VerticalAlignment="Center" Content="Pátek: "/>
+                <CheckBox Content="povolen vstup" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <Label Grid.Row="5" VerticalAlignment="Center" Content="Sobota: "/>
+                <CheckBox Content="povolen vstup" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <Label Grid.Row="6" VerticalAlignment="Center" Content="Neděle: "/>
+                <CheckBox Content="povolen vstup" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                
+                
+            </Grid>
+
+        </GroupBox>
+
+        
+        
+        <Button Grid.Row="8" Grid.Column="1" Content="Přidej nového člověka" Width="120" Height="30"/>
+    </Grid>
+</Window>
