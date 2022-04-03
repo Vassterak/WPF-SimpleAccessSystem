@@ -7,6 +7,49 @@
         mc:Ignorable="d"
         Title="Správa lidí v systému" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ListView Margin="5,5,5,5" x:Name="itemsInWareHouse" Grid.Column="0" Grid.Row="0" Grid.RowSpan="8" SelectionChanged="itemsInWareHouse_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding Barcode}" />
+                    <GridViewColumn Header="Skupina" Width="100" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Jméno" Width="50" DisplayMemberBinding="{Binding Quantity}"/>
+                    <GridViewColumn Header="Přijmení" Width="75" DisplayMemberBinding="{Binding Price}" />
+                </GridView>
+            </ListView.View>
+            <Expander Height="100" Header="Expander" Width="100">
+                <Grid Background="#FF00"/>
+            </Expander>
+        </ListView>
+
+        <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Vybrané ID: "/>
+        <Label Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" Content="#ID"/>
+
+        <Label Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Jméno a příjmení:"/>
+        <Label Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" Content="#Jméno"/>
+
+        <Label Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Aktuální skupina:"/>
+        <Label Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" Content="#Skupina"/>
+
+        <Button Grid.Row="8" Grid.Column="3" Content="Ulož nastavení osoby" Width="130" Height="30"/>
+        <Button Grid.Row="8" Grid.Column="2" Content="Smazat aktuální osobu" Width="130" Height="30"/>
+        <Button Grid.Row="8" Grid.Column="1" Content="Přidat osobu" Width="130" Height="30"/>
+
     </Grid>
 </Window>

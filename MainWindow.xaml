@@ -17,7 +17,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
@@ -26,7 +26,7 @@
         </Grid.ColumnDefinitions>
 
         <!--Tabulka historie přichozí lidi atd... kokoti co se hlásí-->
-        <Label Content="Historie nedávných přístupů:" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label Content="Historie nedávných přístupů:" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="14"/>
         <ListView Margin="5" x:Name="boughtItems" ItemsSource="{Binding boughtProducts}" Grid.Column="0" Grid.Row="1" Grid.RowSpan="8">
             <ListView.View>
                 <GridView>
@@ -38,7 +38,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
+
         <!--Vytvoř novou kirplo skupinu pro kterény jako ty aby jsi je mohl separovat od inteligentních lidí-->
         <Label Grid.Column="1" Grid.Row="0" Content="Založ novou skupinu (název):" VerticalAlignment="Center"/>
         <TextBox Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" />
@@ -52,7 +52,7 @@
             <ComboBoxItem>Vypis skupin</ComboBoxItem>
         </ComboBox>
         <Button Grid.Row="1" Grid.Column="3" Content="Smazej skupinu" Width="120" Height="30"/>
-        
+
         <!--Nastavení pravidel pro jednotlivé dny na skupinu-->
         <GroupBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="6" Header="Pravidla pro přístup skupiny: '#Name'">
             <Grid ShowGridLines="True">
@@ -76,7 +76,7 @@
                 </Grid.ColumnDefinitions>
                 <!--#spaghetticode-->
                 <!--Pondělí-->
-                <Label Grid.Row="0" VerticalAlignment="Center" Content="Pondělí: "/>
+                <Label Grid.Row="0" VerticalAlignment="Center" Content="Pondělí: " FontSize="14"/>
                 <CheckBox Content="povolen vstup" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <!--Start time-->
                 <Components:HoursSelect Grid.Column="2" Grid.Row="0"/>
@@ -85,42 +85,42 @@
                 <Components:HoursSelect Grid.Column="4" Grid.Row="0"/>
                 <Components:MinutesSelect Grid.Column="5" Grid.Row="0"/>
 
-                <Label Grid.Row="1" VerticalAlignment="Center" Content="Úterý: "/>
+                <Label Grid.Row="1" VerticalAlignment="Center" Content="Úterý: " FontSize="14"/>
                 <CheckBox Content="povolen vstup" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Components:HoursSelect Grid.Column="2" Grid.Row="1"/>
                 <Components:MinutesSelect Grid.Column="3" Grid.Row="1"/>
                 <Components:HoursSelect Grid.Column="4" Grid.Row="1"/>
                 <Components:MinutesSelect Grid.Column="5" Grid.Row="1"/>
 
-                <Label Grid.Row="2" VerticalAlignment="Center" Content="Středa: "/>
+                <Label Grid.Row="2" VerticalAlignment="Center" Content="Středa: " FontSize="14"/>
                 <CheckBox Content="povolen vstup" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Components:HoursSelect Grid.Column="2" Grid.Row="2"/>
                 <Components:MinutesSelect Grid.Column="3" Grid.Row="2"/>
                 <Components:HoursSelect Grid.Column="4" Grid.Row="2"/>
                 <Components:MinutesSelect Grid.Column="5" Grid.Row="2"/>
 
-                <Label Grid.Row="3" VerticalAlignment="Center" Content="Čtvrtek: "/>
+                <Label Grid.Row="3" VerticalAlignment="Center" Content="Čtvrtek: " FontSize="14"/>
                 <CheckBox Content="povolen vstup" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Components:HoursSelect Grid.Column="2" Grid.Row="3"/>
                 <Components:MinutesSelect Grid.Column="3" Grid.Row="3"/>
                 <Components:HoursSelect Grid.Column="4" Grid.Row="3"/>
                 <Components:MinutesSelect Grid.Column="5" Grid.Row="3"/>
 
-                <Label Grid.Row="4" VerticalAlignment="Center" Content="Pátek: "/>
+                <Label Grid.Row="4" VerticalAlignment="Center" Content="Pátek: " FontSize="14"/>
                 <CheckBox Content="povolen vstup" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Components:HoursSelect Grid.Column="2" Grid.Row="4"/>
                 <Components:MinutesSelect Grid.Column="3" Grid.Row="4"/>
                 <Components:HoursSelect Grid.Column="4" Grid.Row="4"/>
                 <Components:MinutesSelect Grid.Column="5" Grid.Row="4"/>
 
-                <Label Grid.Row="5" VerticalAlignment="Center" Content="Sobota: "/>
+                <Label Grid.Row="5" VerticalAlignment="Center" Content="Sobota: " FontSize="14"/>
                 <CheckBox Content="povolen vstup" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Components:HoursSelect Grid.Column="2" Grid.Row="5"/>
                 <Components:MinutesSelect Grid.Column="3" Grid.Row="5"/>
                 <Components:HoursSelect Grid.Column="4" Grid.Row="5"/>
                 <Components:MinutesSelect Grid.Column="5" Grid.Row="5"/>
 
-                <Label Grid.Row="6" VerticalAlignment="Center" Content="Neděle: "/>
+                <Label Grid.Row="6" VerticalAlignment="Center" Content="Neděle: " FontSize="14"/>
                 <CheckBox Content="povolen vstup" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Components:HoursSelect Grid.Column="2" Grid.Row="6"/>
                 <Components:MinutesSelect Grid.Column="3" Grid.Row="6"/>
@@ -134,6 +134,6 @@
         <!--Spodní část tlačítka a aktuální čas-->
         <Button Grid.Row="8" Grid.Column="2" Content="Ulož nastavení skupiny" Width="130" Height="30"/>
         <Button Grid.Row="8" Grid.Column="1" Content="Správa lidí" Width="130" Height="30"/>
-        <Label Grid.Row="8" Grid.Column="3" Content="Aktuální čas: HH:MM:SS" VerticalAlignment="Center"/>
+        <Label Grid.Row="8" Grid.Column="3" Content="Aktuální čas: HH:MM:SS" VerticalAlignment="Center" FontWeight="Bold"/>
     </Grid>
 </Window>
