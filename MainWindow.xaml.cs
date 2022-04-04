@@ -42,6 +42,7 @@ namespace AccessSystem
                 ListViewLogsList.Items.Insert(0, new Log { Id = reader.GetInt32(0) , userID = uint.Parse(reader.GetInt32(1).ToString()), TimeStamp = reader.GetString(2).ToString()});
                 //MessageBox.Show(reader.ToString());
             }
+            DatabaseContent.CloseDatabase();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -78,6 +79,27 @@ namespace AccessSystem
                     e.Cancel = true;
                     break;
             }
+        }
+
+        private void ButtonSaveGroup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonAddGroup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonDeleteGroup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonManagePeople_Click(object sender, RoutedEventArgs e)
+        {
+            UserManagement window = new UserManagement();
+            window.ShowDialog();
         }
     }
 }

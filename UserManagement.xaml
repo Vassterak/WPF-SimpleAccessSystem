@@ -24,13 +24,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ListView Margin="5,5,5,5" x:Name="itemsInWareHouse" Grid.Column="0" Grid.Row="0" Grid.RowSpan="8">
+        <ListView Margin="5,5,5,5" x:Name="ListViewUserList" Grid.Column="0" Grid.Row="0" Grid.RowSpan="8" SelectionChanged="ListViewUserList_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding Barcode}" />
-                    <GridViewColumn Header="Skupina" Width="100" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Jméno" Width="50" DisplayMemberBinding="{Binding Quantity}"/>
-                    <GridViewColumn Header="Přijmení" Width="75" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Skupina" Width="100" DisplayMemberBinding="{Binding GroupID}" />
+                    <GridViewColumn Header="Jméno" Width="50" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Přijmení" Width="75" DisplayMemberBinding="{Binding SurName}" />
                 </GridView>
             </ListView.View>
             <Expander Height="100" Header="Expander" Width="100">
@@ -39,17 +39,22 @@
         </ListView>
 
         <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Vybrané ID: "/>
-        <Label Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" Content="#ID"/>
+        <Label x:Name="LabelID" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" Content="#ID"/>
 
-        <Label Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Jméno a příjmení:"/>
-        <Label Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" Content="#Jméno"/>
+        <Label Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Jméno:"/>
+        <TextBox x:Name="LabelName" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" Text="#Jméno"/>
 
-        <Label Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Aktuální skupina:"/>
-        <Label Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" Content="#Skupina"/>
+        <Label Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Příjmení:"/>
+        <TextBox x:Name="LabelSurname" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" Text="#Přijmeni"/>
 
-        <Button Grid.Row="8" Grid.Column="3" Content="Ulož nastavení osoby" Width="130" Height="30"/>
-        <Button Grid.Row="8" Grid.Column="2" Content="Smazat aktuální osobu" Width="130" Height="30"/>
-        <Button Grid.Row="8" Grid.Column="1" Content="Přidat osobu" Width="130" Height="30"/>
+        <Label Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Aktuální skupina:"/>
+        <ComboBox x:Name="ComboboxGroupName" Grid.Column="3" Grid.Row="4" VerticalAlignment="Center">
+            <ComboBoxItem  IsSelected="True">Vyber skupinu</ComboBoxItem>
+        </ComboBox>
+
+        <Button x:Name="ButtonSaveCurrentPerson" Grid.Row="8" Grid.Column="3" Content="Ulož nastavení osoby" Width="130" Height="30" Click="ButtonSaveCurrentPerson_Click"/>
+        <Button x:Name="ButtonDeletePerson" Grid.Row="8" Grid.Column="2" Content="Smazat aktuální osobu" Width="130" Height="30" Click="ButtonDeletePerson_Click"/>
+        <Button x:Name="ButtonAddPerson" Grid.Row="8" Grid.Column="1" Content="Přidat osobu" Width="130" Height="30" Click="ButtonAddPerson_Click"/>
 
     </Grid>
 </Window>

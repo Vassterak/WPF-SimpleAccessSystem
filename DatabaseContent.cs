@@ -48,6 +48,8 @@ namespace AccessSystem
         {
             try
             {
+                dbConnection = new SQLiteConnection("Data Source=db_access.sqlite; FailIfMissing = True");
+                dbConnection.Open();
                 command = new SQLiteCommand(sqlCommand, dbConnection);
                 return command.ExecuteReader();
             }
@@ -59,11 +61,13 @@ namespace AccessSystem
             }
         }
 
-        public static bool InsertIntoDatabase(string sql)
+        public static bool InsertIntoDatabase(string sqlCommand)
         {
-            command.CommandText = sql;
             try
             {
+                dbConnection = new SQLiteConnection("Data Source=db_access.sqlite; FailIfMissing = True");
+                dbConnection.Open();
+                command = new SQLiteCommand(sqlCommand, dbConnection);
                 command.ExecuteNonQuery();
                 return true;
             }
@@ -84,6 +88,7 @@ namespace AccessSystem
                 dbConnection.Open();
                 SQLiteCommand sqlCommand = new SQLiteCommand(dbConnection);
                 CreateTablesInNewDatabase(sqlCommand);
+                dbConnection.Close();
             }
 
             catch (Exception e)
