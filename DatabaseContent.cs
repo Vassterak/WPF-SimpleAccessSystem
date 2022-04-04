@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace AccessSystem
 {
-    public class DatabaseContent:DbContext
+    public class DatabaseContent
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Data Source = AccessSystem.db");
-        }
 
-        public DbSet<Users> Users { get; set; }
+    }
 
-
+    public class Users
+    {
+        public uint Id { get; set; }
+        public int GroupID { get; set; }
+        public string FirstName { get; set; }
+        public string SurName { get; set; }
     }
 }
