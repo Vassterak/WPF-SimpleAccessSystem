@@ -75,6 +75,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AppClasses.cs" />
     <Compile Include="Components\HoursSelect.xaml.cs">
       <DependentUpon>HoursSelect.xaml</DependentUpon>
     </Compile>

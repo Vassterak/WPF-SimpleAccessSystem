@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Components="clr-namespace:AccessSystem.Components"
         mc:Ignorable="d"
-        Title="Přistupový systém hlavní stránka" MinHeight="550" MinWidth="950">
+        Title="Přistupový systém hlavní stránka" MinHeight="550" MinWidth="950" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -27,14 +27,14 @@
 
         <!--Tabulka historie přichozí lidi atd... kokoti co se hlásí-->
         <Label Content="Historie nedávných přístupů:" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="14"/>
-        <ListView Margin="5" x:Name="boughtItems" ItemsSource="{Binding boughtProducts}" Grid.Column="0" Grid.Row="1" Grid.RowSpan="8">
+        <ListView Margin="5" x:Name="ListViewLogsList" ItemsSource="{Binding boughtProducts}" Grid.Column="0" Grid.Row="1" Grid.RowSpan="8">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" Width="60" DisplayMemberBinding="{Binding Barcode}" />
-                    <GridViewColumn Header="Jméno" Width="110" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Skupina" Width="80" DisplayMemberBinding="{Binding Quantity}"/>
-                    <GridViewColumn Header="Čas" Width="75" DisplayMemberBinding="{Binding Price}" />
-                    <GridViewColumn Header="Vstup" Width="35" DisplayMemberBinding="{Binding TotalPrice}" />
+                    <GridViewColumn Header="ID" Width="60" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Jméno" Width="110" DisplayMemberBinding="{Binding userId}" />
+                    <GridViewColumn Header="Skupina" Width="80" DisplayMemberBinding="{Binding GroupId}"/>
+                    <GridViewColumn Header="Čas" Width="75" DisplayMemberBinding="{Binding TimeStamp}" />
+                    <GridViewColumn Header="Vstup" Width="35" DisplayMemberBinding="{Binding AccesGuaranted}" />
                 </GridView>
             </ListView.View>
         </ListView>
