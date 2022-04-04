@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccessSystem"
         mc:Ignorable="d"
-        Title="Správa lidí v systému" Height="450" Width="800">
+        Title="Správa lidí v systému" MinHeight="500" MinWidth="850">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
@@ -52,9 +52,10 @@
             <ComboBoxItem  IsSelected="True">Vyber skupinu</ComboBoxItem>
         </ComboBox>
 
-        <Button x:Name="ButtonSaveCurrentPerson" Grid.Row="8" Grid.Column="3" Content="Ulož nastavení osoby" Width="130" Height="30" Click="ButtonSaveCurrentPerson_Click"/>
-        <Button x:Name="ButtonDeletePerson" Grid.Row="8" Grid.Column="2" Content="Smazat aktuální osobu" Width="130" Height="30" Click="ButtonDeletePerson_Click"/>
-        <Button x:Name="ButtonAddPerson" Grid.Row="8" Grid.Column="1" Content="Přidat osobu" Width="130" Height="30" Click="ButtonAddPerson_Click"/>
+        <Button x:Name="ButtonSaveCurrentPerson" Grid.Row="7" Grid.Column="3" Content="Ulož nastavení osoby" Width="130" Height="30" Click="ButtonSaveCurrentPerson_Click"/>
+        <Button x:Name="ButtonDeletePerson" Grid.Row="7" Grid.Column="2" Content="Smazat aktuální osobu" Width="130" Height="30" Click="ButtonDeletePerson_Click"/>
+        <Button x:Name="ButtonNewPerson" Grid.Row="6" Grid.Column="1" Content="Vytvořit osobu" Width="130" Height="30" IsEnabled="True" Click="ButtonNewPerson_Click"/>
+        <Button x:Name="ButtonAddPerson" Grid.Row="7" Grid.Column="1" Content="Přidat osobu" Width="130" Height="30" Click="ButtonAddPerson_Click" IsEnabled="False"/>
 
     </Grid>
 </Window>

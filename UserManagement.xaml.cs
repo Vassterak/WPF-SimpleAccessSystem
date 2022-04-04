@@ -22,7 +22,7 @@ namespace AccessSystem
     {
         User userForEditing;
         SQLiteDataReader reader;
-        int newestIDSave = 0;
+        uint newestIDSave = 0;
         List<int> listOfGroupsIDs = new List<int>();
         public UserManagement()
         {
@@ -32,14 +32,17 @@ namespace AccessSystem
 
         private void LoadUsers()
         {
+            ListViewUserList.Items.Clear();
+            listOfGroupsIDs.Clear();
+            ComboboxGroupName.Items.Clear();
             string sqlCommand = "SELECT * FROM Users";
             reader = DatabaseContent.GetValuesFromDB(sqlCommand);
             while (reader.Read())
             {
                 ListViewUserList.Items.Insert(0, new User { Id = Convert.ToUInt32(reader.GetInt32(0)), GroupID = int.Parse(reader.GetInt32(1).ToString()), FirstName = reader.GetString(2), SurName = reader.GetString(3) });
 
-                if (reader.GetInt32(0) <= newestIDSave)
-                    newestIDSave = reader.GetInt32(0) + 1;
+                if (reader.GetInt32(0) >= newestIDSave)
+                    newestIDSave = Convert.ToUInt32(reader.GetInt32(0)) + 1;
 
             }
 
@@ -60,10 +63,12 @@ namespace AccessSystem
             try
             {
                 int groupID = listOfGroupsIDs[ComboboxGroupName.SelectedIndex - 1];
-                //MessageBox.Show(groupID.ToString());
+                MessageBox.Show(newestIDSave.ToString());
                 DatabaseContent.InsertIntoDatabase($"INSERT INTO Users (id, groupID,firstName,surName) values ('{newestIDSave}','{groupID}','{LabelName.Text}','{LabelSurname.Text}')");
                 DatabaseContent.CloseDatabase();
                 LoadUsers();
+                ButtonAddPerson.IsEnabled = false;
+                ButtonNewPerson.IsEnabled = true;
             }
             catch (Exception error)
             {
@@ -71,10 +76,29 @@ namespace AccessSystem
                 throw;
             }
         }
+        private void ButtonNewPerson_Click(object sender, RoutedEventArgs e)
+        {
+            LabelID.Content = "";
+            LabelName.Text = "";
+            LabelSurname.Text = "";
+            ButtonAddPerson.IsEnabled = true;
+            ButtonNewPerson.IsEnabled = false;
+        }
 
         private void ButtonDeletePerson_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                DatabaseContent.InsertIntoDatabase($"DELETE FROM Users WHERE id = '{Convert.ToUInt32(LabelID.Content)}'");
+                DatabaseContent.CloseDatabase();
+                MessageBox.Show("Úspěšně vymazáno.");
+                LoadUsers();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.ToString());
+                throw;
+            }
         }
 
         private void ButtonSaveCurrentPerson_Click(object sender, RoutedEventArgs e)
@@ -103,6 +127,7 @@ namespace AccessSystem
                 LabelID.Content = userForEditing.Id;
                 LabelName.Text = userForEditing.FirstName;
                 LabelSurname.Text = userForEditing.SurName;
+                ComboboxGroupName.SelectedIndex = userForEditing.GroupID;
             }
         }
     }
