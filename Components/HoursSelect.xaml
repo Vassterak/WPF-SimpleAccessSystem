@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
             
     
-    <ComboBox HorizontalAlignment="Stretch" Height="30">
+    <ComboBox HorizontalAlignment="Stretch" Height="30" x:Name="HoursGetIndex">
         <ComboBoxItem  IsSelected="True" Content="Hod."></ComboBoxItem>
         <ComboBoxItem>00:</ComboBoxItem>
         <ComboBoxItem>01:</ComboBoxItem>

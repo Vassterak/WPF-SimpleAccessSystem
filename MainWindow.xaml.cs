@@ -24,6 +24,8 @@ namespace AccessSystem
     {
         SQLiteDataReader reader;
         List<int> listOfGroupsIDs = new List<int>();
+        int[] minutesHelpArray = {0, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55 };
+        int[] hoursHelpArray = {0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 };
         public MainWindow()
         {
             InitializeComponent();
@@ -99,6 +101,20 @@ namespace AccessSystem
 
         private void ButtonSaveGroup_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void ReadGroupSettings()
+        {
+            int[] fromTime = new int[7];
+            int[] toTime = new int[7];
+            //Monday
+            fromTime[0] = hoursHelpArray[MONHoursSTART.GetValuesFromComboBox()] * 60 + minutesHelpArray[MONMinSTART.GetValuesFromComboBox()];
+            toTime[0] = hoursHelpArray[MONHoursEND.GetValuesFromComboBox()] * 60 + minutesHelpArray[MONMinEND.GetValuesFromComboBox()];
+
+            //Tue
+            fromTime[0] = hoursHelpArray[MONHoursSTART.GetValuesFromComboBox()] * 60 + minutesHelpArray[MONMinSTART.GetValuesFromComboBox()];
+            toTime[0] = hoursHelpArray[MONHoursEND.GetValuesFromComboBox()] * 60 + minutesHelpArray[MONMinEND.GetValuesFromComboBox()];
 
         }
 

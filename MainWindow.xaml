@@ -74,31 +74,32 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <!--#spaghetticode-->
+
                 <!--Pondělí-->
                 <Label Grid.Row="0" VerticalAlignment="Center" Content="Pondělí: " FontSize="14"/>
                 <CheckBox x:Name="CheckBoxMON" Content="povolen vstup" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <!--Start time-->
-                <Components:HoursSelect x:Name="MOHoursStart" Grid.Column="2" Grid.Row="0"/>
-                <Components:MinutesSelect Grid.Column="3" Grid.Row="0"/>
-                <!--Ending time-->
-                <Components:HoursSelect Grid.Column="4" Grid.Row="0"/>
-                <Components:MinutesSelect Grid.Column="5" Grid.Row="0"/>
+                <Components:HoursSelect x:Name="MONHoursSTART" Grid.Column="2" Grid.Row="0"/>
+                <Components:MinutesSelect x:Name="MONMinSTART" Grid.Column="3" Grid.Row="0"/>
+                <Components:HoursSelect x:Name="MONHoursEND" Grid.Column="4" Grid.Row="0"/>
+                <Components:MinutesSelect x:Name="MONMinEND" Grid.Column="5" Grid.Row="0"/>
 
+                <!--Úterý-->
                 <Label Grid.Row="1" VerticalAlignment="Center" Content="Úterý: " FontSize="14"/>
                 <CheckBox x:Name="CheckBoxTUE" Content="povolen vstup" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Components:HoursSelect Grid.Column="2" Grid.Row="1"/>
-                <Components:MinutesSelect Grid.Column="3" Grid.Row="1"/>
-                <Components:HoursSelect Grid.Column="4" Grid.Row="1"/>
-                <Components:MinutesSelect Grid.Column="5" Grid.Row="1"/>
+                <Components:HoursSelect x:Name="TUEHoursSTART" Grid.Column="2" Grid.Row="1"/>
+                <Components:MinutesSelect x:Name="TUEMinSTART" Grid.Column="3" Grid.Row="1"/>
+                <Components:HoursSelect x:Name="TUEHoursEND" Grid.Column="4" Grid.Row="1"/>
+                <Components:MinutesSelect x:Name="TUEMinEND" Grid.Column="5" Grid.Row="1"/>
 
+                <!--Středa-->
                 <Label Grid.Row="2" VerticalAlignment="Center" Content="Středa: " FontSize="14"/>
                 <CheckBox x:Name="CheckBoxWED" Content="povolen vstup" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Components:HoursSelect Grid.Column="2" Grid.Row="2"/>
-                <Components:MinutesSelect Grid.Column="3" Grid.Row="2"/>
-                <Components:HoursSelect Grid.Column="4" Grid.Row="2"/>
-                <Components:MinutesSelect Grid.Column="5" Grid.Row="2"/>
+                <Components:HoursSelect x:Name="WEDHoursSTART" Grid.Column="2" Grid.Row="2"/>
+                <Components:MinutesSelect x:Name="WEDMinSTART" Grid.Column="3" Grid.Row="2"/>
+                <Components:HoursSelect x:Name="WEDHoursEND" Grid.Column="4" Grid.Row="2"/>
+                <Components:MinutesSelect x:Name="WEDMinEND" Grid.Column="5" Grid.Row="2"/>
 
+                <!--Čtvrtek-->
                 <Label Grid.Row="3" VerticalAlignment="Center" Content="Čtvrtek: " FontSize="14"/>
                 <CheckBox x:Name="CheckBoxTHU" Content="povolen vstup" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Components:HoursSelect Grid.Column="2" Grid.Row="3"/>
@@ -106,6 +107,7 @@
                 <Components:HoursSelect Grid.Column="4" Grid.Row="3"/>
                 <Components:MinutesSelect Grid.Column="5" Grid.Row="3"/>
 
+                <!--Pátek-->
                 <Label Grid.Row="4" VerticalAlignment="Center" Content="Pátek: " FontSize="14"/>
                 <CheckBox x:Name="CheckBoxFRI" Content="povolen vstup" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Components:HoursSelect Grid.Column="2" Grid.Row="4"/>
@@ -113,6 +115,7 @@
                 <Components:HoursSelect Grid.Column="4" Grid.Row="4"/>
                 <Components:MinutesSelect Grid.Column="5" Grid.Row="4"/>
 
+                <!--Sobota-->
                 <Label Grid.Row="5" VerticalAlignment="Center" Content="Sobota: " FontSize="14"/>
                 <CheckBox x:Name="CheckBoxSAT" Content="povolen vstup" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Components:HoursSelect Grid.Column="2" Grid.Row="5"/>
@@ -120,6 +123,7 @@
                 <Components:HoursSelect Grid.Column="4" Grid.Row="5"/>
                 <Components:MinutesSelect Grid.Column="5" Grid.Row="5"/>
 
+                <!--Neděle-->
                 <Label Grid.Row="6" VerticalAlignment="Center" Content="Neděle: " FontSize="14"/>
                 <CheckBox x:Name="CheckBoxSUN" Content="povolen vstup" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Components:HoursSelect Grid.Column="2" Grid.Row="6"/>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
-    <ComboBox HorizontalAlignment="Stretch" Height="30">
+    <ComboBox HorizontalAlignment="Stretch" Height="30" x:Name="MinutesComboBox">
         <ComboBoxItem  IsSelected="True" Content="Min."></ComboBoxItem>
         <ComboBoxItem>00</ComboBoxItem>
         <ComboBoxItem>05</ComboBoxItem>

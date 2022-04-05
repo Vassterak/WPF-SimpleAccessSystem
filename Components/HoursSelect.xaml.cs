@@ -32,6 +32,10 @@ namespace AccessSystem.Components
         public static readonly DependencyProperty HoursNameProperty =
             DependencyProperty.Register("HoursName", typeof(string), typeof(HoursSelect), new PropertyMetadata("none"));
 
+        public int GetValuesFromComboBox()
+        {
+            return HoursGetIndex.SelectedIndex;
+        }
 
         public HoursSelect()
         {
