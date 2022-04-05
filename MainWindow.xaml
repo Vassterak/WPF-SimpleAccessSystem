@@ -41,7 +41,7 @@
 
         <!--Vytvoř novou kirplo skupinu pro kterény jako ty aby jsi je mohl separovat od inteligentních lidí-->
         <Label Grid.Column="1" Grid.Row="0" Content="Založ novou skupinu (název):" VerticalAlignment="Center"/>
-        <TextBox Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" />
+        <TextBox x:Name="TextBoxGroupNewName" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" />
         <Button x:Name="ButtonAddGroup" Grid.Row="0" Grid.Column="3" Content="Přidej novou skupinu" Width="120" Height="30" Click="ButtonAddGroup_Click"/>
 
         <!--Správa skupin, vyber skupinu a namrdej do ní kokoty jako jsi ty sám-->
@@ -79,7 +79,7 @@
                 <Label Grid.Row="0" VerticalAlignment="Center" Content="Pondělí: " FontSize="14"/>
                 <CheckBox x:Name="CheckBoxMON" Content="povolen vstup" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <!--Start time-->
-                <Components:HoursSelect Grid.Column="2" Grid.Row="0"/>
+                <Components:HoursSelect x:Name="MOHoursStart" Grid.Column="2" Grid.Row="0"/>
                 <Components:MinutesSelect Grid.Column="3" Grid.Row="0"/>
                 <!--Ending time-->
                 <Components:HoursSelect Grid.Column="4" Grid.Row="0"/>

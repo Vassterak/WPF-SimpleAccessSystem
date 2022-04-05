@@ -35,8 +35,7 @@ namespace AccessSystem
             ListViewUserList.Items.Clear();
             listOfGroupsIDs.Clear();
             ComboboxGroupName.Items.Clear();
-            string sqlCommand = "SELECT * FROM Users";
-            reader = DatabaseContent.GetValuesFromDB(sqlCommand);
+            reader = DatabaseContent.GetValuesFromDB("SELECT * FROM Users");
             while (reader.Read())
             {
                 ListViewUserList.Items.Insert(0, new User { Id = Convert.ToUInt32(reader.GetInt32(0)), GroupID = int.Parse(reader.GetInt32(1).ToString()), FirstName = reader.GetString(2), SurName = reader.GetString(3) });
@@ -46,14 +45,11 @@ namespace AccessSystem
 
             }
 
-            sqlCommand = "SELECT * FROM Groups";
-            reader = DatabaseContent.GetValuesFromDB(sqlCommand);
+            reader = DatabaseContent.GetValuesFromDB("SELECT * FROM Groups");
             while (reader.Read())
             {
                 listOfGroupsIDs.Add(reader.GetInt32(0));
                 ComboboxGroupName.Items.Add(reader.GetInt32(0) + " - " + reader.GetString(1));
-
-                //ListViewUserList.Items.Insert(0, new User { Id = Convert.ToUInt32(reader.GetInt32(0)), GroupID = int.Parse(reader.GetInt32(1).ToString()), FirstName = reader.GetString(2), SurName = reader.GetString(3) });
             }
             DatabaseContent.CloseDatabase();
         }

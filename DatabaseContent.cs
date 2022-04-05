@@ -100,7 +100,7 @@ namespace AccessSystem
 
         private static void CreateTablesInNewDatabase(SQLiteCommand sqlCommand)
         {
-            sqlCommand.CommandText = "CREATE TABLE `Groups` (`id` INTEGER PRIMARY KEY,`name` TEXT,`MOromTime` INTEGER,`MOtoTime` INTEGER,`TUfromTime` INTEGER,`TUtoTime` INTEGER,`WEfromTime` INTEGER,`WEtoTime` INTEGER,`THfromTime` INTEGER,`THtoTime` INTEGER,`FRfromTime` INTEGER,`FRtoTime` INTEGER,`SAfromTime` INTEGER,`SAtoTime` INTEGER,`SUfromTime` INTEGER,`SUtoTime` INTEGER);";
+            sqlCommand.CommandText = "CREATE TABLE `Groups` (`id` INTEGER PRIMARY KEY,`name` TEXT,`MOfromTime` INTEGER,`MOtoTime` INTEGER,`TUfromTime` INTEGER,`TUtoTime` INTEGER,`WEfromTime` INTEGER,`WEtoTime` INTEGER,`THfromTime` INTEGER,`THtoTime` INTEGER,`FRfromTime` INTEGER,`FRtoTime` INTEGER,`SAfromTime` INTEGER,`SAtoTime` INTEGER,`SUfromTime` INTEGER,`SUtoTime` INTEGER);";
             sqlCommand.ExecuteNonQuery();
 
             sqlCommand.CommandText = "CREATE TABLE `Users` (`id` UINT32 PRIMARY KEY,`groupID` INTEGER,`firstName` TEXT,`surName` TEXT);";
